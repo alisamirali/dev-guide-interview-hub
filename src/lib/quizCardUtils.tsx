@@ -76,8 +76,8 @@ export const getButtonVariant = (technology: Technology): string => {
       return "bg-gray-800 hover:bg-gray-900 text-white";
     case "nestjs":
       return "bg-red-600 hover:bg-red-700 text-white";
-    default:
-      return "bg-primary hover:bg-primary/90 text-white";
+    case "typescript":
+      return "bg-blue-600 hover:bg-blue-700 text-white";
   }
 };
 

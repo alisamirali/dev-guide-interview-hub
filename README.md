@@ -29,16 +29,20 @@ DevGuide - Interview Hub is a modern web application designed to help developers
 
 ### User-Friendly Interface
 
-- Clean and intuitive design with light/dark mode support
+- Neobrutalist / editorial design inspired by Gumroad's visual style
+- Light/dark mode with persistent theme preference via localStorage
 - Responsive layout for all devices
-- Real-time progress tracking
+- Real-time progress tracking with hard-shadow card UI
 - Immediate feedback on answers
-- Persistent theme preference via localStorage
+- Floating back-to-top button
+- Tech pill navigation bar for quick section jumping
 
 ## Technology Stack
 
 - **Frontend Framework**: React 18 with TypeScript
 - **Styling**: Tailwind CSS + shadcn/ui (Radix UI)
+- **Fonts**: Syne (headings) + DM Sans (body) via Google Fonts
+- **Icons**: Lucide React + React Icons
 - **Routing**: React Router v6
 - **State Management**: React Context API
 - **Build Tool**: Vite
@@ -104,10 +108,13 @@ dev-guide-interview-hub/
 │   │   └── quizTypes.ts
 │   ├── hooks/               # Custom React hooks
 │   ├── lib/                 # Utility functions
+│   │   ├── quizCardUtils.tsx # Per-technology colors, icons, button styles
+│   │   └── utils.ts
 │   ├── pages/               # Page components
 │   │   ├── Index.tsx
 │   │   ├── QuizPage.tsx
 │   │   └── NotFound.tsx
+│   ├── index.css            # Global styles & neobrutalist design tokens
 │   └── main.tsx             # Application entry point
 ├── public/                  # Static assets
 ├── index.html               # HTML template

@@ -2,19 +2,21 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="py-4 relative">
-      <p className="text-center text-sm text-muted-foreground">
-        &copy; {new Date().getFullYear()}{" "}
-        <Link
-          to="https://t.me/the_developer_guide"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="font-medium text-foreground hover:opacity-70 transition-opacity hover:underline"
-        >
-          DevGuide
-        </Link>{" "}
-        - Interview Hub. All rights reserved.
-      </p>
+    <footer className="border-t-2 border-black dark:border-white/60 py-6 bg-background">
+      <div className="container mx-auto px-6">
+        <p className="text-sm font-medium text-muted-foreground text-center">
+          &copy; {new Date().getFullYear()}{" "}
+          <Link
+            to="https://t.me/the_developer_guide"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-black text-foreground hover:opacity-70 transition-opacity"
+          >
+            DevGuide
+          </Link>{" "}
+          — Interview Hub. All rights reserved.
+        </p>
+      </div>
     </footer>
   );
 };

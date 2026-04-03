@@ -9,34 +9,31 @@ type QuestionItemProps = {
 
 const QuestionItem: React.FC<QuestionItemProps> = ({ question }) => {
   const { userAnswers, answerQuestion } = useQuiz();
-
   const selectedAnswer = userAnswers[question.id];
-
-  const handleSelectAnswer = (index: number) => {
-    answerQuestion(question.id, index);
-  };
 
   return (
     <div className="question-enter">
-      <h3 className="text-xl font-medium mb-6">{question.question}</h3>
+      <h3 className="text-xl font-black leading-snug mb-6 text-foreground">
+        {question.question}
+      </h3>
 
-      <div className="space-y-3 mb-6">
+      <div className="space-y-3">
         {question.options.map((option, index) => (
           <div
             key={index}
-            className={`answer-card cursor-pointer flex items-center ${
+            className={`answer-card cursor-pointer flex items-center gap-3 ${
               selectedAnswer === index ? "selected" : ""
             }`}
-            onClick={() => handleSelectAnswer(index)}
+            onClick={() => answerQuestion(question.id, index)}
           >
-            <div className="mr-3">
-              {selectedAnswer === index ? (
-                <CheckCircle className="h-5 w-5 text-primary" />
-              ) : (
-                <Circle className="h-5 w-5 text-muted-foreground" />
-              )}
-            </div>
-            <div className="flex-1">{option}</div>
+            {selectedAnswer === index ? (
+              <CheckCircle className="h-5 w-5 flex-shrink-0 text-black dark:text-yellow-400" />
+            ) : (
+              <Circle className="h-5 w-5 flex-shrink-0 text-muted-foreground" />
+            )}
+            <span className="text-sm font-medium text-foreground">
+              {option}
+            </span>
           </div>
         ))}
       </div>

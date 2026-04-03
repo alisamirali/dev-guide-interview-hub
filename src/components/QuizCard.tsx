@@ -1,25 +1,33 @@
-import { Button } from "@/components/ui/button";
-import {
-  getBadgeVariant,
-  getButtonVariant,
-  getIcon,
-} from "@/lib/quizCardUtils";
-import { cn } from "@/lib/utils";
+import { getButtonVariant, getIcon } from "@/lib/quizCardUtils";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useQuiz } from "../context/QuizContext";
 import { Quiz } from "../data/quizData";
 import { difficultyLevels, quizCategories } from "../data/quizTypes";
 
-type QuizCardProps = {
-  quiz: Quiz;
+const DIFFICULTY_STYLES: Record<string, string> = {
+  beginner: "bg-[#bbf7d0] text-black border-black",
+  intermediate: "bg-[#fef08a] text-black border-black",
+  advanced: "bg-[#fbcfe8] text-black border-black",
 };
 
-const QuizCard: React.FC<QuizCardProps> = ({ quiz }) => {
+const DIFFICULTY_ICON_BG: Record<string, string> = {
+  beginner: "bg-[#bbf7d0]",
+  intermediate: "bg-[#fef08a]",
+  advanced: "bg-[#fbcfe8]",
+};
+
+type QuizCardProps = {
+  quiz: Quiz;
+  accentColor?: string;
+};
+
+const QuizCard: React.FC<QuizCardProps> = ({
+  quiz,
+  accentColor = "bg-[#fef08a]",
+}) => {
   const navigate = useNavigate();
   const { setCurrentQuiz, startQuiz } = useQuiz();
-
-  const renderIcon = () => getIcon(quiz.technology);
 
   const handleStartQuiz = () => {
     setCurrentQuiz(quiz);
@@ -28,41 +36,55 @@ const QuizCard: React.FC<QuizCardProps> = ({ quiz }) => {
   };
 
   return (
-    <div className={`quiz-card ${quiz.id}-card`}>
-      <div className="flex items-center justify-between mb-4">
-        <div className="bg-primary/10 p-2 rounded-full">{renderIcon()}</div>
+    <div className="quiz-card flex flex-col" onClick={handleStartQuiz}>
+      {/* Top row: icon + difficulty badge */}
+      <div className="flex items-start justify-between mb-4">
+        <div
+          className={`${DIFFICULTY_ICON_BG[quiz.difficulty] ?? "bg-[#fef08a]"} border-2 border-black rounded-md p-2 text-black`}
+        >
+          {getIcon(quiz.technology)}
+        </div>
+        <span
+          className={`text-xs font-black uppercase tracking-wider px-2.5 py-1 border-2 rounded ${
+            DIFFICULTY_STYLES[quiz.difficulty] ??
+            "bg-white border-black text-black"
+          }`}
+        >
+          {difficultyLevels[quiz.difficulty].title}
+        </span>
       </div>
 
-      <div className="mb-5">
-        <h3 className="text-xl font-bold mb-1">
+      {/* Title + description */}
+      <div className="mb-4 flex-1">
+        <h3 className="text-lg font-black leading-tight mb-1 text-foreground">
           {quizCategories[quiz.technology].title}
         </h3>
-        <p className="text-sm text-muted-foreground">
+        <p className="text-sm text-muted-foreground leading-snug">
           {quizCategories[quiz.technology].description}
         </p>
       </div>
 
-      <div className="flex items-center justify-between text-sm font-medium mb-6">
-        <div className="flex items-center gap-1">
-          <span className="text-muted-foreground">Questions:</span>
-          <span>{quiz.questions.length}</span>
-        </div>
-        <div
-          className={cn(
-            getBadgeVariant(quiz.technology),
-            "rounded-lg px-3 py-1 text-sm font-medium inline-block",
-          )}
-        >
-          {difficultyLevels[quiz.difficulty].title}
-        </div>
+      {/* Metadata row */}
+      <div className="flex items-center gap-4 text-xs font-bold text-muted-foreground border-t-2 border-black dark:border-white/40 pt-3 mb-4">
+        <span>{quiz.questions.length} questions</span>
       </div>
 
-      <Button
-        className={cn(getButtonVariant(quiz.technology), "w-full")}
-        onClick={handleStartQuiz}
+      {/* CTA */}
+      <button
+        className={`w-full justify-center inline-flex items-center font-bold text-sm rounded-md px-5 py-2.5 transition-all duration-100 ${getButtonVariant(quiz.technology)}`}
+        style={{ boxShadow: "3px 3px 0 #000" }}
+        onMouseEnter={(e) => {
+          (e.currentTarget as HTMLElement).style.transform =
+            "translate(-1px,-1px)";
+          (e.currentTarget as HTMLElement).style.boxShadow = "5px 5px 0 #000";
+        }}
+        onMouseLeave={(e) => {
+          (e.currentTarget as HTMLElement).style.transform = "";
+          (e.currentTarget as HTMLElement).style.boxShadow = "3px 3px 0 #000";
+        }}
       >
-        Start Quiz
-      </Button>
+        Start Exam →
+      </button>
     </div>
   );
 };
