@@ -33,7 +33,7 @@ const QuestionItem: React.FC<QuestionItemProps> = ({ question }) => {
               {selectedAnswer === index ? (
                 <CheckCircle className="h-5 w-5 text-primary" />
               ) : (
-                <Circle className="h-5 w-5 text-gray-400" />
+                <Circle className="h-5 w-5 text-muted-foreground" />
               )}
             </div>
             <div className="flex-1">{option}</div>

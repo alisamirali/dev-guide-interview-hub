@@ -6,9 +6,9 @@ DevGuide - Interview Hub is a modern web application designed to help developers
 
 ### Multiple Technology Tracks
 
-- **HTML**: From basic tags to advanced semantic markup
-- **CSS**: Styling fundamentals to complex layouts
-- **JavaScript**: Core concepts to advanced programming
+- **HTML**: Markup language for structuring web content
+- **CSS**: Styles the appearance and layout of web pages
+- **JavaScript**: Programming language of the web for interactivity
 - **TypeScript**: Typed superset of JavaScript for safer code
 - **React**: Library for building component-based user interfaces
 - **Angular**: Framework for building scalable web applications
@@ -29,24 +29,27 @@ DevGuide - Interview Hub is a modern web application designed to help developers
 
 ### User-Friendly Interface
 
-- Clean and intuitive design
+- Clean and intuitive design with light/dark mode support
 - Responsive layout for all devices
 - Real-time progress tracking
 - Immediate feedback on answers
+- Persistent theme preference via localStorage
 
 ## Technology Stack
 
-- **Frontend Framework**: React with TypeScript
-- **Styling**: Tailwind CSS
-- **Routing**: React Router
+- **Frontend Framework**: React 18 with TypeScript
+- **Styling**: Tailwind CSS + shadcn/ui (Radix UI)
+- **Routing**: React Router v6
+- **State Management**: React Context API
 - **Build Tool**: Vite
+- **Package Manager**: npm / bun
 
 ## Getting Started
 
 ### Prerequisites
 
-- Node.js (v14 or higher)
-- npm (v6 or higher)
+- Node.js (v18 or higher)
+- npm (v8 or higher)
 
 ### Installation
 
@@ -71,19 +74,44 @@ npm run dev
 
 4. Open your browser and navigate to `http://localhost:8080`
 
+## Available Scripts
+
+| Script              | Description               |
+| ------------------- | ------------------------- |
+| `npm run dev`       | Start development server  |
+| `npm run build`     | Build for production      |
+| `npm run build:dev` | Build in development mode |
+| `npm run lint`      | Run ESLint                |
+| `npm run preview`   | Preview production build  |
+
 ## Project Structure
 
 ```
-codewise-exam-hub/
+dev-guide-interview-hub/
 ├── src/
-│   ├── components/      # Reusable UI components
-│   ├── data/           # Quiz questions and configuration
-│   ├── pages/          # Page components
-│   ├── styles/         # Global styles
-│   └── main.tsx        # Application entry point
-├── public/             # Static assets
-├── index.html          # HTML template
-└── package.json        # Project dependencies
+│   ├── components/          # Reusable UI components
+│   │   ├── ui/              # shadcn/ui base components
+│   │   ├── Footer.tsx
+│   │   ├── QuestionItem.tsx
+│   │   ├── QuizCard.tsx
+│   │   ├── QuizProgress.tsx
+│   │   └── ResultSummary.tsx
+│   ├── context/             # React context providers
+│   │   ├── QuizContext.tsx
+│   │   └── ThemeContext.tsx
+│   ├── data/                # Quiz questions and type definitions
+│   │   ├── quizData.ts
+│   │   └── quizTypes.ts
+│   ├── hooks/               # Custom React hooks
+│   ├── lib/                 # Utility functions
+│   ├── pages/               # Page components
+│   │   ├── Index.tsx
+│   │   ├── QuizPage.tsx
+│   │   └── NotFound.tsx
+│   └── main.tsx             # Application entry point
+├── public/                  # Static assets
+├── index.html               # HTML template
+└── package.json             # Project dependencies
 ```
 
 ## Contributing

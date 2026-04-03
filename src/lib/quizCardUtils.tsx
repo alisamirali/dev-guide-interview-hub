@@ -11,9 +11,9 @@ import {
   FaReact,
   FaSass,
 } from "react-icons/fa";
+import { FaVuejs } from "react-icons/fa6";
 import { RiTailwindCssFill } from "react-icons/ri";
-import { SiTypescript, SiExpress, SiNestjs } from "react-icons/si";
-import {FaVuejs} from "react-icons/fa6"
+import { SiExpress, SiNestjs, SiTypescript } from "react-icons/si";
 
 export const getIcon = (technology: Technology): React.ReactNode => {
   switch (technology) {
@@ -38,7 +38,7 @@ export const getIcon = (technology: Technology): React.ReactNode => {
     case "bootstrap":
       return <FaBootstrap className="size-6" />;
     case "vue":
-      return <FaVuejs  className="size-6" />;
+      return <FaVuejs className="size-6" />;
     case "express":
       return <SiExpress className="size-6" />;
     case "nestjs":
@@ -84,32 +84,32 @@ export const getButtonVariant = (technology: Technology): string => {
 export const getBadgeVariant = (technology: Technology): string => {
   switch (technology) {
     case "html":
-      return "bg-orange-100 text-orange-700";
+      return "bg-orange-100 text-orange-700 dark:bg-orange-900/40 dark:text-orange-300";
     case "css":
-      return "bg-blue-100 text-blue-700";
+      return "bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300";
     case "javascript":
-      return "bg-yellow-100 text-yellow-700";
+      return "bg-yellow-100 text-yellow-700 dark:bg-yellow-900/40 dark:text-yellow-300";
     case "react":
-      return "bg-blue-100 text-blue-700";
+      return "bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300";
     case "angular":
-      return "bg-red-100 text-red-700";
+      return "bg-red-100 text-red-700 dark:bg-red-900/40 dark:text-red-300";
     case "git":
-      return "bg-orange-100 text-orange-700";
+      return "bg-orange-100 text-orange-700 dark:bg-orange-900/40 dark:text-orange-300";
     case "nodejs":
-      return "bg-green-100 text-green-700";
+      return "bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-300";
     case "tailwindcss":
-      return "bg-sky-100 text-sky-700";
+      return "bg-sky-100 text-sky-700 dark:bg-sky-900/40 dark:text-sky-300";
     case "sass":
-      return "bg-pink-100 text-pink-700";
+      return "bg-pink-100 text-pink-700 dark:bg-pink-900/40 dark:text-pink-300";
     case "bootstrap":
-      return "bg-violet-100 text-violet-700";
+      return "bg-violet-100 text-violet-700 dark:bg-violet-900/40 dark:text-violet-300";
     case "vue":
-      return "bg-emerald-100 text-emerald-700";
+      return "bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300";
     case "express":
-      return "bg-gray-100 text-gray-800";
+      return "bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200";
     case "nestjs":
-      return "bg-red-100 text-red-700";
+      return "bg-red-100 text-red-700 dark:bg-red-900/40 dark:text-red-300";
     default:
-      return "bg-primary/5 text-primary";
+      return "bg-primary/10 text-primary";
   }
 };

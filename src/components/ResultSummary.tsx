@@ -13,9 +13,9 @@ const ResultSummary: React.FC = () => {
   const percentage = Math.round((score / totalQuestions) * 100);
 
   const getScoreColor = () => {
-    if (percentage >= 80) return "text-green-600";
-    if (percentage >= 60) return "text-yellow-600";
-    return "text-red-600";
+    if (percentage >= 80) return "text-green-500 dark:text-green-400";
+    if (percentage >= 60) return "text-yellow-500 dark:text-yellow-400";
+    return "text-red-500 dark:text-red-400";
   };
 
   const getGrade = () => {
@@ -70,19 +70,19 @@ const ResultSummary: React.FC = () => {
               <div key={question.id} className="border-b pb-4 last:border-0">
                 <div className="flex items-start gap-2">
                   {isCorrect ? (
-                    <CheckCircle className="h-5 w-5 text-green-600 mt-1 flex-shrink-0" />
+                    <CheckCircle className="h-5 w-5 text-green-500 dark:text-green-400 mt-1 flex-shrink-0" />
                   ) : (
-                    <XCircle className="h-5 w-5 text-red-600 mt-1 flex-shrink-0" />
+                    <XCircle className="h-5 w-5 text-red-500 dark:text-red-400 mt-1 flex-shrink-0" />
                   )}
                   <div>
                     <p className="font-medium mb-2">{question.question}</p>
 
                     {!isCorrect && (
                       <div className="mb-2">
-                        <div className="text-sm text-red-600 mb-1">
+                        <div className="text-sm text-red-500 dark:text-red-400 mb-1">
                           Your answer: {question.options[userAnswer]}
                         </div>
-                        <div className="text-sm text-green-600">
+                        <div className="text-sm text-green-500 dark:text-green-400">
                           Correct answer:{" "}
                           {question.options[question.correctAnswer]}
                         </div>
@@ -90,7 +90,7 @@ const ResultSummary: React.FC = () => {
                     )}
 
                     {isCorrect && (
-                      <div className="text-sm text-green-600 mb-1">
+                      <div className="text-sm text-green-500 dark:text-green-400 mb-1">
                         Correct: {question.options[question.correctAnswer]}
                       </div>
                     )}

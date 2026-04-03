@@ -37,20 +37,20 @@ const QuizCard: React.FC<QuizCardProps> = ({ quiz }) => {
         <h3 className="text-xl font-bold mb-1">
           {quizCategories[quiz.technology].title}
         </h3>
-        <p className="text-sm text-gray-500">
+        <p className="text-sm text-muted-foreground">
           {quizCategories[quiz.technology].description}
         </p>
       </div>
 
       <div className="flex items-center justify-between text-sm font-medium mb-6">
         <div className="flex items-center gap-1">
-          <span className="text-gray-500">Questions:</span>
+          <span className="text-muted-foreground">Questions:</span>
           <span>{quiz.questions.length}</span>
         </div>
         <div
           className={cn(
             getBadgeVariant(quiz.technology),
-            "rounded-lg px-3 py-1 text-sm font-medium inline-block"
+            "rounded-lg px-3 py-1 text-sm font-medium inline-block",
           )}
         >
           {difficultyLevels[quiz.difficulty].title}

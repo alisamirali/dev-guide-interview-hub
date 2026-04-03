@@ -73,7 +73,9 @@
 
   body {
     @apply bg-background text-foreground;
-    font-feature-settings: "rlig" 1, "calt" 1;
+    font-feature-settings:
+      "rlig" 1,
+      "calt" 1;
   }
 
   h1,
@@ -99,7 +101,7 @@
 }
 
 .quiz-card {
-  @apply relative overflow-hidden rounded-xl border bg-white p-6 shadow-md transition-all hover:shadow-lg;
+  @apply relative overflow-hidden rounded-xl border bg-card text-card-foreground p-6 shadow-md transition-all hover:shadow-lg;
 }
 
 .quiz-card::before {
@@ -116,15 +118,15 @@
 }
 
 .answer-card.correct {
-  @apply border-green-500 bg-green-100;
+  @apply border-green-500 bg-green-100 dark:bg-green-900/30 dark:text-green-300;
 }
 
 .answer-card.incorrect {
-  @apply border-red-500 bg-red-100;
+  @apply border-red-500 bg-red-100 dark:bg-red-900/30 dark:text-red-300;
 }
 
 .progress-bar {
-  @apply h-2 w-full overflow-hidden rounded-full bg-gray-200;
+  @apply h-2 w-full overflow-hidden rounded-full bg-muted;
 }
 
 .progress-bar div {
@@ -136,5 +138,5 @@
 }
 
 .results-container {
-  @apply space-y-6 rounded-xl border bg-white p-6 shadow-md;
+  @apply space-y-6 rounded-xl border bg-card text-card-foreground p-6 shadow-md;
 }
