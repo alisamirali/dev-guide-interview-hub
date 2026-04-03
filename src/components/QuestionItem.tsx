@@ -27,7 +27,7 @@ const QuestionItem: React.FC<QuestionItemProps> = ({ question }) => {
             onClick={() => answerQuestion(question.id, index)}
           >
             {selectedAnswer === index ? (
-              <CheckCircle className="h-5 w-5 flex-shrink-0 text-black dark:text-yellow-400" />
+              <CheckCircle className="h-5 w-5 flex-shrink-0 text-black dark:text-[#ff90e8]" />
             ) : (
               <Circle className="h-5 w-5 flex-shrink-0 text-muted-foreground" />
             )}

@@ -7,13 +7,13 @@ import { difficultyLevels, quizCategories } from "../data/quizTypes";
 
 const DIFFICULTY_STYLES: Record<string, string> = {
   beginner: "bg-[#bbf7d0] text-black border-black",
-  intermediate: "bg-[#fef08a] text-black border-black",
+  intermediate: "bg-[#ff90e8] text-black border-black",
   advanced: "bg-[#fbcfe8] text-black border-black",
 };
 
 const DIFFICULTY_ICON_BG: Record<string, string> = {
   beginner: "bg-[#bbf7d0]",
-  intermediate: "bg-[#fef08a]",
+  intermediate: "bg-[#ff90e8]",
   advanced: "bg-[#fbcfe8]",
 };
 

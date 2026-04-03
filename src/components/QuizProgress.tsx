@@ -23,7 +23,7 @@ const QuizProgress: React.FC = () => {
       {/* Neobrutalist progress bar */}
       <div className="h-3 w-full border-2 border-black dark:border-white/60 rounded-none bg-white dark:bg-[#1a1a1a] overflow-hidden">
         <div
-          className="h-full bg-black dark:bg-yellow-400 transition-all duration-300"
+          className="h-full bg-black dark:bg-[#ff90e8] transition-all duration-300"
           style={{ width: `${progressPercentage}%` }}
         />
       </div>

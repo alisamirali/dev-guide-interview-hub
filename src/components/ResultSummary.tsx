@@ -13,7 +13,7 @@ const ResultSummary: React.FC = () => {
 
   const getScoreBg = () => {
     if (percentage >= 80) return "bg-[#bbf7d0]";
-    if (percentage >= 60) return "bg-[#fef08a]";
+    if (percentage >= 60) return "bg-[#ff90e8]";
     return "bg-[#fbcfe8]";
   };
 

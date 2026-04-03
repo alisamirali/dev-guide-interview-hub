@@ -7,7 +7,7 @@ import { quizzes } from "../data/quizData";
 import { Technology, quizCategories } from "../data/quizTypes";
 
 const ACCENT_COLORS = [
-  "bg-[#fef08a]", // pastel yellow
+  "bg-[#ff90e8]", // gumroad pink
   "bg-[#fbcfe8]", // pastel pink
   "bg-[#e9d5ff]", // lavender
   "bg-[#bbf7d0]", // mint
@@ -66,7 +66,7 @@ export default function Index() {
   return (
     <div className="min-h-screen bg-background flex flex-col">
       {/* ── Header ── */}
-      <header className="sticky top-0 z-50 w-full bg-background border-b-2 border-black dark:border-white/60">
+      <header className="sticky top-0 z-50 w-full bg-background dark:bg-black border-b-2 border-black dark:border-white/20">
         <div className="container mx-auto px-6 h-14 flex items-center justify-between">
           <span className="font-black text-lg tracking-tight text-foreground">
             DevGuide
@@ -88,131 +88,55 @@ export default function Index() {
 
       <main className="flex-1">
         {/* ── Hero ── */}
-        <section className="border-b-2 border-black dark:border-white/60 bg-[#fef9ee] dark:bg-[#111]">
+        <section className="border-b-2 border-black dark:border-white/20 bg-[#fff0fb] dark:bg-background">
           <div className="container mx-auto px-6 py-20 lg:py-28">
-            <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
-              {/* Left: text */}
-              <div className="flex-1 min-w-0">
-                {/* Sticker badge */}
-                <div className="inline-flex items-center gap-2 mb-8 px-4 py-1.5 bg-[#fef08a] border-2 border-black rounded-full text-sm font-bold text-black">
-                  ✦ Free to use · No signup required
-                </div>
-
-                <h1 className="text-5xl md:text-7xl font-black leading-[0.95] tracking-tighter text-foreground mb-8">
-                  Ace your
-                  <br />
-                  <span className="inline-block bg-[#fef08a] dark:bg-yellow-400 text-black px-3 border-2 border-black dark:border-yellow-400 rotate-[-1deg]">
-                    dev interview.
-                  </span>
-                </h1>
-
-                <p className="text-lg md:text-xl text-muted-foreground max-w-xl leading-relaxed mb-10 font-medium">
-                  Interactive exams across 14 technologies. Test your skills,
-                  track your progress, and level up your career — one question
-                  at a time.
-                </p>
-
-                <div className="flex flex-wrap gap-4">
-                  <button
-                    onClick={() => scrollTo("topics-nav")}
-                    className="neo-btn text-base px-7 py-3"
-                  >
-                    Browse Topics
-                  </button>
-                </div>
-
-                {/* Stats row */}
-                <div className="flex flex-wrap gap-6 mt-8 pt-4 border-t-2 border-black dark:border-white/40 md:w-fit w-full">
-                  {[
-                    {
-                      value: `${quizzes.length}+`,
-                      label: "Practice Questions",
-                    },
-                    {
-                      value: `${Object.keys(quizCategories).length}`,
-                      label: "Technologies",
-                    },
-                    { value: "3", label: "Difficulty Levels" },
-                  ].map((stat) => (
-                    <div key={stat.label} className="flex items-baseline gap-2">
-                      <span className="text-3xl font-black text-foreground">
-                        {stat.value}
-                      </span>
-                      <span className="text-sm font-medium text-muted-foreground">
-                        {stat.label}
-                      </span>
-                    </div>
-                  ))}
-                </div>
+            <div className="max-w-3xl mx-auto text-center">
+              {/* Sticker badge */}
+              <div className="inline-flex items-center gap-2 mb-8 px-4 py-1.5 bg-[#ff90e8] border-2 border-black rounded-full text-sm font-bold text-black">
+                ✦ Free to use · No signup required
               </div>
 
-              {/* Right: mock quiz card illustration */}
-              <div className="flex-1 w-full">
-                <div
-                  className="bg-white dark:bg-[#1a1a1a] border-2 border-black dark:border-white/70 rounded-lg overflow-hidden"
-                  style={{ boxShadow: "8px 8px 0 #000" }}
+              <h1 className="text-5xl md:text-7xl lg:text-8xl font-black leading-[0.95] tracking-tighter text-foreground mb-8">
+                Ace your
+                <br />
+                <span className="inline-block bg-[#ff90e8] text-black px-3 border-2 border-black rotate-[-1deg]">
+                  dev interview.
+                </span>
+              </h1>
+
+              <p className="text-lg md:text-xl text-muted-foreground max-w-xl mx-auto leading-relaxed mb-10 font-medium">
+                14 technologies. 3 difficulty levels. Real interview questions.
+                Practice until you're ready, then go get the job.
+              </p>
+
+              <div className="flex flex-wrap gap-4 justify-center">
+                <button
+                  onClick={() => scrollTo("topics-nav")}
+                  className="neo-btn text-base px-7 py-3"
                 >
-                  {/* Window bar */}
-                  <div className="flex items-center gap-2 px-4 py-3 border-b-2 border-black dark:border-white/40 bg-[#fef08a]">
-                    <span className="w-3 h-3 rounded-full bg-black opacity-30" />
-                    <span className="w-3 h-3 rounded-full bg-black opacity-30" />
-                    <span className="w-3 h-3 rounded-full bg-black opacity-30" />
-                    <span className="ml-3 text-xs font-black text-black uppercase tracking-widest">
-                      JavaScript · Intermediate
+                  Browse Topics
+                </button>
+              </div>
+
+              {/* Stats row */}
+              <div className="flex flex-wrap gap-8 justify-center mt-8">
+                {[
+                  { value: `${quizzes.length}+`, label: "Practice Questions" },
+                  {
+                    value: `${Object.keys(quizCategories).length}`,
+                    label: "Technologies",
+                  },
+                  { value: "3", label: "Difficulty Levels" },
+                ].map((stat) => (
+                  <div key={stat.label} className="flex items-baseline gap-2">
+                    <span className="text-3xl font-black text-foreground">
+                      {stat.value}
+                    </span>
+                    <span className="text-sm font-medium text-muted-foreground">
+                      {stat.label}
                     </span>
                   </div>
-
-                  {/* Progress bar + counter — top, matching actual quiz */}
-                  <div className="px-5 pt-4 pb-2">
-                    <div className="flex justify-between text-xs font-bold text-foreground mb-2">
-                      <span>Question 4 / 30</span>
-                      <span>4 answered</span>
-                    </div>
-                    <div className="h-2 border-2 border-black dark:border-white/40 bg-white dark:bg-[#111] overflow-hidden">
-                      <div className="h-full bg-black dark:bg-yellow-400 w-[40%]" />
-                    </div>
-                  </div>
-
-                  {/* Question + options */}
-                  <div className="px-5 pt-3 pb-5">
-                    <p className="font-black text-base text-foreground mb-4 leading-snug">
-                      What does the{" "}
-                      <code className="bg-[#fef08a] dark:bg-yellow-900/40 px-1 rounded text-sm">
-                        typeof
-                      </code>{" "}
-                      operator return for{" "}
-                      <code className="bg-[#fef08a] dark:bg-yellow-900/40 px-1 rounded text-sm">
-                        null
-                      </code>
-                      ?
-                    </p>
-
-                    <div className="space-y-2.5">
-                      {[
-                        { label: "A", text: '"null"', selected: false },
-                        { label: "B", text: '"object"', selected: true },
-                        { label: "C", text: '"undefined"', selected: false },
-                        { label: "D", text: '"boolean"', selected: false },
-                      ].map((opt) => (
-                        <div
-                          key={opt.label}
-                          className={`flex items-center gap-3 px-4 py-2.5 border-2 rounded-md text-sm font-bold ${
-                            opt.selected
-                              ? "bg-[#fef08a] border-black text-black"
-                              : "bg-white dark:bg-[#111] border-black dark:border-white/40 text-foreground"
-                          }`}
-                        >
-                          <span
-                            className={`w-5 h-5 flex-shrink-0 rounded-full border-2 border-black dark:border-white/60 flex items-center justify-center text-xs font-black ${opt.selected ? "bg-black text-white" : ""}`}
-                          >
-                            {opt.selected ? "✓" : opt.label}
-                          </span>
-                          <code>{opt.text}</code>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
           </div>
